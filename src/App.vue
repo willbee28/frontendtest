@@ -42,7 +42,7 @@ const handleLedgerUpdate = (newLedgerEntry: LedgerEntry) => {
             class="flex-grow"
             :style="{ maxWidth: windowHeight - 50 + 'px' }"
           >
-            <Chessboard @updateLedger="handleLedgerUpdate" />
+            <Chessboard @updateLedger="handleLedgerUpdate" :ledger="ledger" />
           </div>
         </div>
         <div

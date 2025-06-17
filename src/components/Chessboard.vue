@@ -1,4 +1,9 @@
 <script setup lang="ts">
+// Props
+const props = defineProps<{
+  ledger: LedgerEntry[];
+}>();
+
 export type LedgerEntry = { letter: string; num: number };
 
 const letters = ["h", "g", "f", "e", "d", "c", "b", "a"];
@@ -21,6 +26,11 @@ for (let num = 1; num <= 8; num++) {
         :class="[
           'relative w-full h-full',
           // checkerboard color logic
+          ledger.length &&
+          square.num === ledger[ledger.length - 1].num &&
+          square.letter === ledger[ledger.length - 1].letter
+            ? 'bg-[#fcff5ecc]'
+            : '',
           (square.num + index) % 2 === 0 ? 'bg-[#EBECD0]' : 'bg-[#739552]',
         ]"
         @click="$emit('updateLedger', square)"
