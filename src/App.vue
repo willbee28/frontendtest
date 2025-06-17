@@ -52,6 +52,7 @@ const handleLedgerUpdate = (newLedgerEntry: LedgerEntry) => {
           <div
             class="bg-[#454545] p-2 rounded-sm h-24 lg:h-64 overflow-y-auto custom-scrollbar"
             ref="ledgerContainer"
+            :style="{ maxHeight: windowHeight - 100 + 'px' }"
           >
             <div
               v-for="(posit, index) in ledger"
