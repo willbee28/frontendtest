@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { nextTick, onMounted, onBeforeUnmount, ref } from "vue";
 import Chessboard, { type LedgerEntry } from "./components/Chessboard.vue";
+import Sidebar from "./components/Sidebar.vue";
 
 const ledger = ref<LedgerEntry[]>([]);
 const ledgerContainer = ref<HTMLElement | null>(null);
@@ -48,23 +49,7 @@ const handleLedgerUpdate = (newLedgerEntry: LedgerEntry) => {
         <div
           class="flex flex-col bg-[#2b2b2b] text-white rounded-lg p-1 lg:mb-0 mb-4 lg:w-44 h-auto"
         >
-          <div class="underline mb-2">Moves</div>
-          <div
-            class="bg-[#454545] p-2 rounded-sm h-24 lg:h-64 overflow-y-auto custom-scrollbar"
-            ref="ledgerContainer"
-            :style="{ maxHeight: windowHeight - 100 + 'px' }"
-          >
-            <div
-              v-for="(posit, index) in ledger"
-              :key="posit.letter + posit.num"
-              class="inline-block lg:flex"
-            >
-              <span>
-                {{ index }}. &nbsp;{{ posit.letter }}{{ posit.num }} &nbsp;
-                &nbsp;
-              </span>
-            </div>
-          </div>
+          <Sidebar :ledger="ledger" :windowHeight="windowHeight" />
         </div>
       </div>
     </div>
