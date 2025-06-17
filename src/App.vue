@@ -33,7 +33,7 @@ const handleLedgerUpdate = (newLedgerEntry: LedgerEntry) => {
   <div class="bg-[#393936] h-screen">
     <div class="xl:w-1/2 md:w-3/5 w-auto mx-auto">
       <div
-        class="text-white px-8 text-4xl mx-auto flex justify-center lg:justify-start"
+        class="text-white px-8 text-4xl w-1/2 lg:w-auto mx-auto flex justify-center lg:justify-start"
       >
         Chess.com
       </div>

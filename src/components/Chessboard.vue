@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-// Props
 const props = defineProps<{
   ledger: LedgerEntry[];
 }>();
@@ -29,12 +28,13 @@ const latestMove = computed(() => props.ledger[props.ledger.length - 1]);
         :key="square.letter + square.num"
         :class="[
           'relative w-full h-full',
-          // checkerboard color logic
+          // last-clicked-square highlight
           latestMove &&
           square.num === latestMove.num &&
           square.letter === latestMove.letter
             ? 'bg-[#fcff5ecc]'
             : '',
+          // checkerboard color logic
           (square.num + index) % 2 === 0 ? 'bg-[#EBECD0]' : 'bg-[#739552]',
         ]"
         @click="$emit('updateLedger', square)"
