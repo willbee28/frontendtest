@@ -31,20 +31,22 @@ const handleLedgerUpdate = (newLedgerEntry: LedgerEntry) => {
 <template>
   <div class="bg-[#393936] h-screen">
     <div
-      class="text-white py-8 px-8 text-4xl w-1/2 mx-auto flex justify-center lg:justify-start"
+      class="text-white px-8 text-4xl w-1/2 mx-auto flex justify-center lg:justify-start"
     >
       Chess.com
     </div>
-    <div class="xl:w-1/2 sm:w-3/5 mx-auto">
-      <div
-        class="flex flex-col lg:flex-row gap-4 m-4"
-        :style="{ maxWidth: windowHeight + 'px' }"
-      >
-        <div class="flex flex-grow justify-center items-start">
-          <Chessboard @updateLedger="handleLedgerUpdate" />
+    <div class="xl:w-1/2 md:w-3/5 w-auto mx-auto">
+      <div class="flex flex-col lg:flex-row gap-4 mx-4 justify-center">
+        <div class="flex flex-row flex-grow justify-center lg:contents">
+          <div
+            class="flex-grow"
+            :style="{ maxWidth: windowHeight - 50 + 'px' }"
+          >
+            <Chessboard @updateLedger="handleLedgerUpdate" />
+          </div>
         </div>
         <div
-          class="flex flex-col bg-[#2b2b2b] text-white rounded-lg p-4 lg:w-44 h-64 lg:h-auto overflow-y-auto custom-scrollbar"
+          class="flex bg-[#2b2b2b] text-white rounded-lg p-4 lg:mb-0 mb-4 lg:w-44 h-64 lg:h-auto overflow-y-auto custom-scrollbar"
           ref="ledgerContainer"
         >
           <div class="underline">Moves</div>
