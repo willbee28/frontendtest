@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from "vue";
+
 // Props
 const props = defineProps<{
   ledger: LedgerEntry[];
@@ -14,6 +16,8 @@ for (let num = 1; num <= 8; num++) {
     squares.push({ letter: letters[c], num: num });
   }
 }
+
+const latestMove = computed(() => props.ledger[props.ledger.length - 1]);
 </script>
 
 <template>
@@ -26,9 +30,9 @@ for (let num = 1; num <= 8; num++) {
         :class="[
           'relative w-full h-full',
           // checkerboard color logic
-          ledger.length &&
-          square.num === ledger[ledger.length - 1].num &&
-          square.letter === ledger[ledger.length - 1].letter
+          latestMove &&
+          square.num === latestMove.num &&
+          square.letter === latestMove.letter
             ? 'bg-[#fcff5ecc]'
             : '',
           (square.num + index) % 2 === 0 ? 'bg-[#EBECD0]' : 'bg-[#739552]',
