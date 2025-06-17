@@ -46,7 +46,7 @@ const handleLedgerUpdate = (newLedgerEntry: LedgerEntry) => {
           </div>
         </div>
         <div
-          class="flex bg-[#2b2b2b] text-white rounded-lg p-4 lg:mb-0 mb-4 lg:w-44 h-64 lg:h-auto overflow-y-auto custom-scrollbar"
+          class="flex flex-col bg-[#2b2b2b] text-white rounded-lg p-4 lg:mb-0 mb-4 lg:w-44 h-64 lg:h-auto overflow-y-auto custom-scrollbar"
           ref="ledgerContainer"
         >
           <div class="underline">Moves</div>
