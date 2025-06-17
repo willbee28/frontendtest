@@ -46,14 +46,23 @@ const handleLedgerUpdate = (newLedgerEntry: LedgerEntry) => {
           </div>
         </div>
         <div
-          class="flex flex-col bg-[#2b2b2b] text-white rounded-lg p-4 lg:mb-0 mb-4 lg:w-44 h-64 lg:h-auto overflow-y-auto custom-scrollbar"
-          ref="ledgerContainer"
+          class="flex flex-col bg-[#2b2b2b] text-white rounded-lg p-1 lg:mb-0 mb-4 lg:w-44 h-auto"
         >
-          <div class="underline">Moves</div>
-          <div v-for="(posit, index) in ledger" :key="posit.letter + posit.num">
-            <span class="">
-              {{ index }}. &nbsp;{{ posit.letter }}{{ posit.num }}
-            </span>
+          <div class="underline mb-2">Moves</div>
+          <div
+            class="bg-[#454545] p-2 rounded-sm h-24 lg:h-64 overflow-y-auto custom-scrollbar"
+            ref="ledgerContainer"
+          >
+            <div
+              v-for="(posit, index) in ledger"
+              :key="posit.letter + posit.num"
+              class="inline-block lg:flex"
+            >
+              <span>
+                {{ index }}. &nbsp;{{ posit.letter }}{{ posit.num }} &nbsp;
+                &nbsp;
+              </span>
+            </div>
           </div>
         </div>
       </div>
